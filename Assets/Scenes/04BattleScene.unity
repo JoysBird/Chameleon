@@ -254,8 +254,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d46604712199047a5ae91ae1ff11d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPoint
-  Crusader: {fileID: 4638604341221367016, guid: dbdacc31c324d414c9b5d8c06586aac2, type: 3}
-  enemyData: {fileID: 11400000, guid: ae43f6b6eca7571468aa64f75564e92f, type: 2}
+  enemyList:
+  - enemyPrefab: {fileID: 4638604341221367016, guid: dbdacc31c324d414c9b5d8c06586aac2, type: 3}
+    enemyData: {fileID: 11400000, guid: ae43f6b6eca7571468aa64f75564e92f, type: 2}
+  - enemyPrefab: {fileID: 5682131900534975027, guid: 8fe08c4e219134a46ae6f728a0d95324, type: 3}
+    enemyData: {fileID: 11400000, guid: dbde7597f0069b643a8b79ec41154d4a, type: 2}
 --- !u!1 &438884236
 GameObject:
   m_ObjectHideFlags: 0

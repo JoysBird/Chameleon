@@ -1,15 +1,37 @@
 using UnityEngine;
 
+[System.Serializable]
+public class EnemySpawnData
+{
+    public GameObject enemyPrefab;
+    public EnemyData enemyData;
+}
+
 public class SpawnPoint : MonoBehaviour
 {
-    public GameObject Crusader;
-    public EnemyData enemyData;
+    public EnemySpawnData[] enemyList;
 
     void Start()
     {
-        GameObject enemy = Instantiate(Crusader, transform.position, transform.rotation);
+        SpawnRandomEnemy();
+    }
+
+    void SpawnRandomEnemy()
+    {
+        if (enemyList.Length == 0)
+            return;
+
+        int randomIndex = Random.Range(0, enemyList.Length);
+
+        EnemySpawnData selectedEnemy = enemyList[randomIndex];
+
+        GameObject enemy = Instantiate(
+            selectedEnemy.enemyPrefab,
+            transform.position,
+            transform.rotation
+        );
 
         EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-        enemyHealth.Initialize(enemyData);
+        enemyHealth.Initialize(selectedEnemy.enemyData);
     }
 }

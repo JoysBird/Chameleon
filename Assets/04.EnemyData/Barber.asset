@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891b66b151cd06149947eb6079a1a05c, type: 3}
-  m_Name: NewEnemy
+  m_Name: Barber
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  enemyName: Crusader
-  enemyPrefab: {fileID: 4638604341221367016, guid: dbdacc31c324d414c9b5d8c06586aac2, type: 3}
-  maxHP: 30
+  enemyName: Barber
+  enemyPrefab: {fileID: 5682131900534975027, guid: 8fe08c4e219134a46ae6f728a0d95324, type: 3}
+  maxHP: 50
