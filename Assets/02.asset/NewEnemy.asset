@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: Crusader
   enemyPrefab: {fileID: 4638604341221367016, guid: dbdacc31c324d414c9b5d8c06586aac2, type: 3}
-  maxHP: 0
+  maxHP: 30

@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPoint
   Crusader: {fileID: 4638604341221367016, guid: dbdacc31c324d414c9b5d8c06586aac2, type: 3}
+  enemyData: {fileID: 11400000, guid: ae43f6b6eca7571468aa64f75564e92f, type: 2}
 --- !u!1 &438884236
 GameObject:
   m_ObjectHideFlags: 0
