@@ -1,39 +1,31 @@
 using UnityEngine;
 using TMPro;
 
-public class EnemyHealth : MonoBehaviour //이것은 프리팹의 HP를 설정하고 조정하는 텍스트와 ui를 만들기 위함입니다.
+public class EnemyHealth : MonoBehaviour
 {
     [Header("HP 설정")]
-    public int maxHP;
-    private int currentHP;
+    public int maxHP = 50; // 적의 최대 HP
+    private int currentHP; // 적의 현재 HP
 
     [Header("HP UI")]
-    public TMP_Text hpText;
+    public TMP_Text hpText; // HP를 표시할 TextMeshPro UI
 
-    public void Initialize(EnemyData data)
+    void Start()
     {
-        maxHP = data.maxHP;
-        currentHP = maxHP;
-
-        UpdateHPText();
+        currentHP = maxHP; // 현재 HP를 최대 HP로 초기화
+        UpdateHPText(); // 초기 HP 텍스트 갱신
     }
 
     private void UpdateHPText()
     {
-        if (hpText == null)
-        {
-            Debug.LogError("HP Text가 연결되지 않았습니다!");
-            return;
-        }
-
-        hpText.text = $"{currentHP}/{maxHP}";
+        hpText.text = $"{currentHP}/{maxHP}"; // 현재 HP와 최대 HP를 텍스트로 표시
     }
 
     public void TakeDamage(int damage)
     {
-        currentHP -= damage;
-        currentHP = Mathf.Clamp(currentHP, 0, maxHP);
+        currentHP -= damage; // 받은 피해만큼 현재 HP 감소
+        currentHP = Mathf.Clamp(currentHP, 0, maxHP); // 현재 HP가 0 미만 또는 최대 HP 초과가 되지 않도록 제한
 
-        UpdateHPText();
+        UpdateHPText(); // 피해 적용 후 HP 텍스트 갱신
     }
 }
