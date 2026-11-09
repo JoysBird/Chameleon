@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHP : MonoBehaviour
 {
     public int maxHP = 30;
     public TMP_Text hpText;

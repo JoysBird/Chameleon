@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5423350715346812012}
   - component: {fileID: 7883862720433043654}
   - component: {fileID: 2838397607587097215}
+  - component: {fileID: 2100000010}
   m_Layer: 0
   m_Name: Crusader
   m_TagString: Untagged
@@ -346,3 +347,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+
+--- !u!114 &2100000010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638604341221367016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775921c7aa52d074e9e08343e37b1e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCard
+  cards:
+  - {fileID: 11400000, guid: a55db0bab9004404b861deeb27c4e5b3, type: 2}
