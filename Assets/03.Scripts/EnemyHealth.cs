@@ -5,30 +5,32 @@ public class EnemyHealth : MonoBehaviour
 {
 
 
-    [Header("HP ¼³Á¤")]
-    public int maxHP; // ÀûÀÇ ÃÖ´ë HP inspector¿¡¼­ ¼³Á¤
+    [Header("HP ì„¤ì •")]
+    public int maxHP; // ì ì˜ ìµœëŒ€ HP inspectorì—ì„œ ì„¤ì •
     public int CurrentHP => currentHP;
-    private int currentHP; // ÀûÀÇ ÇöÀç HP µ¥¹ÌÁö¸¦ ¹Ş´ø..ÀÌ·±°Å
+    private int currentHP; // ì ì˜ í˜„ì¬ HP ë°ë¯¸ì§€ë¥¼ ë°›ë˜..ì´ëŸ°ê±°
 
     [Header("HP UI")]
-    public TMP_Text hpText; // HP¸¦ Ç¥½ÃÇÒ TextMeshPro UI
+    public TMP_Text hpText; // HPë¥¼ í‘œì‹œí•  TextMeshPro UI
 
-    void Start()
+    void Awake()
     {
-        currentHP = maxHP; // ÇöÀç HP¸¦ ÃÖ´ë HP·Î ÃÊ±âÈ­
-        UpdateHPText(); // ÃÊ±â HP ÅØ½ºÆ® °»½Å
+        currentHP = maxHP; // í˜„ì¬ HPë¥¼ ìµœëŒ€ HPë¡œ ì´ˆê¸°í™”
+        UpdateHPText(); // ì´ˆê¸° HP í…ìŠ¤íŠ¸ ê°±ì‹ 
     }
 
     private void UpdateHPText()
     {
-        hpText.text = $"{currentHP}/{maxHP}"; // ÇöÀç HP¿Í ÃÖ´ë HP¸¦ ÅØ½ºÆ®·Î Ç¥½Ã
+        if (hpText != null)
+            hpText.text = $"{currentHP}/{maxHP}"; // í˜„ì¬ HPì™€ ìµœëŒ€ HPë¥¼ í…ìŠ¤íŠ¸ë¡œ í‘œì‹œ
     }
 
     public void TakeDamage(int damage)
     {
-        currentHP -= damage; // ¹ŞÀº ÇÇÇØ¸¸Å­ ÇöÀç HP °¨¼Ò
-        currentHP = Mathf.Clamp(currentHP, 0, maxHP); // ÇöÀç HP°¡ 0 ¹Ì¸¸ ¶Ç´Â ÃÖ´ë HP ÃÊ°ú°¡ µÇÁö ¾Êµµ·Ï Á¦ÇÑ
+        currentHP -= Mathf.Max(0, damage); // ë°›ì€ í”¼í•´ë§Œí¼ í˜„ì¬ HP ê°ì†Œ
+        currentHP = Mathf.Clamp(currentHP, 0, maxHP); // í˜„ì¬ HPê°€ 0 ë¯¸ë§Œ ë˜ëŠ” ìµœëŒ€ HP ì´ˆê³¼ê°€ ë˜ì§€ ì•Šë„ë¡ ì œí•œ
 
-        UpdateHPText(); // ÇÇÇØ Àû¿ë ÈÄ HP ÅØ½ºÆ® °»½Å
+        UpdateHPText(); // í”¼í•´ ì ìš© í›„ HP í…ìŠ¤íŠ¸ ê°±ì‹ 
     }
 }
+

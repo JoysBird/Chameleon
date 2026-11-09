@@ -5,7 +5,7 @@ public class BattleTurnManager : MonoBehaviour
 {
     public static BattleTurnManager Instance { get; private set; }
 
-    public PlayerHealth player;
+    public PlayerHP player;
     public float enemyActionDelay = 0.7f;
 
     public bool CanPlayCard { get; private set; } = true;
@@ -28,15 +28,15 @@ public class BattleTurnManager : MonoBehaviour
         if (enemy == null || enemy.CurrentHP <= 0)
             return false;
 
-        EnemySkills skills = enemy.GetComponent<EnemySkills>();
+        EnemyCard skills = enemy.GetComponent<EnemyCard>();
 
         if (skills == null)
         {
-            Debug.LogWarning("Àû ÇÁ¸®ÆÕ¿¡ EnemySkills¸¦ ºÙ¿©Áà.");
+            Debug.LogWarning("ì  í”„ë¦¬íŒ¹ì— EnemyCardë¥¼ ë¶™ì—¬ì¤˜.");
             return false;
         }
 
-        // Áï½Ã Àá°¡¼­ ¿¬¼Ó Å¬¸¯À¸·Î Áßº¹ »ç¿ëÇÏÁö ¸øÇÏ°Ô ÇÑ´Ù.
+        // ì¦‰ì‹œ ì ê°€ì„œ ì—°ì† í´ë¦­ìœ¼ë¡œ ì¤‘ë³µ ì‚¬ìš©í•˜ì§€ ëª»í•˜ê²Œ í•œë‹¤.
         CanPlayCard = false;
 
         enemy.TakeDamage(card.damage);
@@ -51,7 +51,11 @@ public class BattleTurnManager : MonoBehaviour
     {
         if (enemy == null || enemy.CurrentHP <= 0)
         {
-            Debug.Log("½Â¸®!");
+            EnemyCardUI ui = FindFirstObjectByType<EnemyCardUI>();
+            if (ui != null)
+                ui.ShowCard(null);
+
+            Debug.Log("ìŠ¹ë¦¬!");
             yield break;
         }
 
@@ -59,7 +63,11 @@ public class BattleTurnManager : MonoBehaviour
 
         if (enemy == null || enemy.CurrentHP <= 0)
         {
-            Debug.Log("½Â¸®!");
+            EnemyCardUI ui = FindFirstObjectByType<EnemyCardUI>();
+            if (ui != null)
+                ui.ShowCard(null);
+
+            Debug.Log("ìŠ¹ë¦¬!");
             yield break;
         }
 
@@ -67,26 +75,29 @@ public class BattleTurnManager : MonoBehaviour
             yield break;
 
         CardData enemyCard =
-            skills != null ? skills.ChooseCard() : null;
+            skills != null ? skills.NextCard : null;
 
         if (enemyCard != null)
         {
-            Debug.Log($"Àû ±â¼ú »ç¿ë: {enemyCard.name}");
+            Debug.Log($"ì  ê¸°ìˆ  ì‚¬ìš©: {enemyCard.name}");
             player.TakeDamage(enemyCard.damage);
         }
         else
         {
-            Debug.LogWarning("Àû¿¡°Ô µî·ÏµÈ ±â¼úÀÌ ¾ø¾î ÅÏÀ» ³Ñ°Ü.");
+            Debug.LogWarning("ì ì—ê²Œ ë“±ë¡ëœ ê¸°ìˆ ì´ ì—†ì–´ í„´ì„ ë„˜ê²¨.");
         }
 
         if (player.IsDead)
         {
-            Debug.Log("ÆĞ¹è!");
+            Debug.Log("íŒ¨ë°°!");
             yield break;
         }
 
+        if (skills != null)
+            skills.PrepareNextCard();
+
         CanPlayCard = true;
-        Debug.Log("ÇÃ·¹ÀÌ¾î Â÷·Ê");
+        Debug.Log("í”Œë ˆì´ì–´ ì°¨ë¡€");
     }
 
     private void OnDestroy()

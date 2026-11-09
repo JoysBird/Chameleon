@@ -4,12 +4,29 @@ public class EnemyCard : MonoBehaviour
 {
     public CardData[] cards;
 
+    public CardData NextCard { get; private set; }
+    private EnemyCardUI cardUI;
+
+    private void Start()
+    {
+        cardUI = FindFirstObjectByType<EnemyCardUI>();
+        PrepareNextCard();
+    }
+
+    public void PrepareNextCard()
+    {
+        NextCard = ChooseCard();
+
+        if (cardUI != null)
+            cardUI.ShowCard(NextCard);
+    }
+
     public CardData ChooseCard()
     {
         if (cards == null || cards.Length == 0)
             return null;
 
-        // ºñ¾î ÀÖ´Â Ä­Àº Á¦¿ÜÇÏ°í ¹«ÀÛÀ§ ¼±ÅÃ
+        // ë¹„ì–´ ìˆëŠ” ì¹¸ì€ ì œì™¸í•˜ê³  ë¬´ì‘ìœ„ ì„ íƒ
         int validCount = 0;
 
         foreach (CardData card in cards)
