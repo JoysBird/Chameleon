@@ -107,7 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCard
   cards:
-  - {fileID: 11400000, guid: a55db0bab9004404b861deeb27c4e5b3, type: 2}
+  - {fileID: 11400000, guid: 819f1f790806ea845a18063cebd1ef5e, type: 2}
+  - {fileID: 11400000, guid: 36162e3f8397a634696e161f7fa170f0, type: 2}
 --- !u!114 &2838397607587097215
 MonoBehaviour:
   m_ObjectHideFlags: 0

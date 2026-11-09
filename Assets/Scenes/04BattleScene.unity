@@ -237,6 +237,12 @@ MonoBehaviour:
   cardPreviews:
   - cardData: {fileID: 11400000, guid: a55db0bab9004404b861deeb27c4e5b3, type: 2}
     cardPrefab: {fileID: 7005880369797226615, guid: a2e73acb71a40f744a99e49d230d08f0, type: 3}
+  - cardData: {fileID: 11400000, guid: 1496b5d8a8dbb0e4d96ea1ba2386266f, type: 2}
+    cardPrefab: {fileID: 7005880369797226615, guid: 14d017cee62ab844089c273cd9f898f4, type: 3}
+  - cardData: {fileID: 11400000, guid: 819f1f790806ea845a18063cebd1ef5e, type: 2}
+    cardPrefab: {fileID: 7005880369797226615, guid: 2998779ac5e546c479f2e6c3ea196ecc, type: 3}
+  - cardData: {fileID: 11400000, guid: 36162e3f8397a634696e161f7fa170f0, type: 2}
+    cardPrefab: {fileID: 7005880369797226615, guid: 2cf4fb9ace72dce4488df05a7ea47327, type: 3}
   cardScale: 1
 --- !u!1 &197097730
 GameObject:
