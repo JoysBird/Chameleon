@@ -3,8 +3,11 @@ using TMPro;
 
 public class EnemyHealth : MonoBehaviour
 {
+
+
     [Header("HP 설정")]
     public int maxHP; // 적의 최대 HP inspector에서 설정
+    public int CurrentHP => currentHP;
     private int currentHP; // 적의 현재 HP 데미지를 받던..이런거
 
     [Header("HP UI")]

@@ -67,6 +67,10 @@ public class CardUI : MonoBehaviour, IPointerClickHandler
         if (eventData.button != PointerEventData.InputButton.Left)
             return;
 
+        BattleTurnManager manager = BattleTurnManager.Instance;
+
+        if (manager == null || !manager.CanPlayCard)
+            return;
         // 이미 선택된 카드를 다시 클릭하면 기술 사용
         if (isSelected)
         {
@@ -136,25 +140,16 @@ public class CardUI : MonoBehaviour, IPointerClickHandler
 
     private void UseSkill()
     {
-        if (cardData == null)
+        BattleTurnManager manager = BattleTurnManager.Instance;
+
+        if (manager == null)
         {
-            Debug.LogWarning("Card Data에 카드 데이터를 연결해줘.", this);
+            Debug.LogWarning("씬에 BattleTurnManager가 없어.", this);
             return;
         }
 
-        // 현재는 적이 한 명인 전투 기준
-        EnemyHealth enemy = FindFirstObjectByType<EnemyHealth>();
-
-        if (enemy == null)
-        {
-            Debug.LogWarning("사용할 대상인 적이 없어.", this);
-            return;
-        }
-
-        enemy.TakeDamage(cardData.damage);
-
-        // 사용해도 삭제하지 않고 원래 자리로 복귀
-        ReturnToHand();
+        if (manager.TryUsePlayerCard(cardData))
+            ReturnToHand();
     }
 
     private void OnDisable()

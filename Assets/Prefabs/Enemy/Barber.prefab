@@ -112,6 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8740110140422384869}
   - component: {fileID: 40364374594066943}
+  - component: {fileID: 5197913801059164481}
   - component: {fileID: 6557061797092389458}
   m_Layer: 0
   m_Name: Barber
@@ -195,6 +196,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &5197913801059164481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5682131900534975027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775921c7aa52d074e9e08343e37b1e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCard
+  cards:
+  - {fileID: 11400000, guid: 1496b5d8a8dbb0e4d96ea1ba2386266f, type: 2}
 --- !u!114 &6557061797092389458
 MonoBehaviour:
   m_ObjectHideFlags: 0
