@@ -7,6 +7,48 @@ public class InventoryManager : MonoBehaviour
 
     private GameObject[] items = new GameObject[4];
 
+    private static GameObject[] savedItemPrefabs = new GameObject[4];
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetRuntimeData()
+    {
+        savedItemPrefabs = new GameObject[4];
+    }
+
+    private void Start()
+    {
+        if (!ValidateSlots())
+            return;
+
+        for (int i = 0; i < savedItemPrefabs.Length; i++)
+        {
+            if (savedItemPrefabs[i] != null && items[i] == null)
+            {
+                CreateItem(savedItemPrefabs[i], i);
+            }
+        }
+    }
+
+    private bool ValidateSlots()
+    {
+        if (slots == null || slots.Length != 4)
+        {
+            Debug.LogWarning("슬롯은 정확히 4개를 연결해줘.", this);
+            return false;
+        }
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] == null)
+            {
+                Debug.LogWarning($"{i + 1}번 슬롯을 연결해줘.", this);
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public bool TryAddItem(GameObject itemPrefab)
     {
         if (itemPrefab == null)
@@ -18,47 +60,16 @@ public class InventoryManager : MonoBehaviour
             return false;
         }
 
-        if (slots == null || slots.Length != 4)
-        {
-            Debug.LogWarning("슬롯은 정확히 4개를 연결해줘.", this);
+        if (!ValidateSlots())
             return false;
-        }
 
-        // 생성 전에 네 슬롯의 연결 상태 확인
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < savedItemPrefabs.Length; i++)
         {
-            if (slots[i] == null)
-            {
-                Debug.LogWarning($"{i + 1}번 슬롯이 비어 있어.", this);
-                return false;
-            }
-        }
-
-        // 01부터 순서대로 빈칸 찾기
-        for (int i = 0; i < items.Length; i++)
-        {
-            if (items[i] != null)
+            if (savedItemPrefabs[i] != null)
                 continue;
 
-            GameObject item = Instantiate(itemPrefab, slots[i], false);
-            items[i] = item;
-
-            // 아이템 버튼을 슬롯 크기에 맞추기
-            RectTransform rect = item.GetComponent<RectTransform>();
-
-            rect.anchorMin = Vector2.zero;
-            rect.anchorMax = Vector2.one;
-            rect.pivot = new Vector2(0.5f, 0.5f);
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
-            rect.localScale = Vector3.one;
-            rect.localRotation = Quaternion.identity;
-
-            Vector3 position = rect.localPosition;
-            position.z = 0f;
-            rect.localPosition = position;
-
-            item.SetActive(true);
+            CreateItem(itemPrefab, i);
+            savedItemPrefabs[i] = itemPrefab;
             return true;
         }
 
@@ -66,13 +77,33 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
-    // 보상 버튼의 On Click에서도 연결할 수 있는 함수
+    private void CreateItem(GameObject itemPrefab, int slotIndex)
+    {
+        GameObject item = Instantiate(itemPrefab, slots[slotIndex], false);
+        items[slotIndex] = item;
+
+        RectTransform rect = item.GetComponent<RectTransform>();
+
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.pivot = new Vector2(0.5f, 0.5f);
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+        rect.localScale = Vector3.one;
+        rect.localRotation = Quaternion.identity;
+
+        Vector3 position = rect.localPosition;
+        position.z = 0f;
+        rect.localPosition = position;
+
+        item.SetActive(true);
+    }
+
     public void AddItem(GameObject itemPrefab)
     {
         TryAddItem(itemPrefab);
     }
 
-    // 아이템 효과 적용에 성공한 후 호출
     public void RemoveItem(GameObject itemObject)
     {
         if (itemObject == null)
@@ -83,10 +114,27 @@ public class InventoryManager : MonoBehaviour
             if (items[i] != itemObject)
                 continue;
 
+            savedItemPrefabs[i] = null;
             items[i] = null;
+
             itemObject.SetActive(false);
             Destroy(itemObject);
             return;
+        }
+    }
+
+    public void ClearInventory()
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            savedItemPrefabs[i] = null;
+
+            if (items[i] != null)
+            {
+                items[i].SetActive(false);
+                Destroy(items[i]);
+                items[i] = null;
+            }
         }
     }
 }

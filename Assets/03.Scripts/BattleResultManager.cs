@@ -9,6 +9,7 @@ public class BattleResultManager : MonoBehaviour
     [Header("결과 화면")]
     [SerializeField] private GameObject victoryPanel;
     [SerializeField] private GameObject defeatPanel;
+    [SerializeField] private GameObject rewardPanel;
 
     [Header("대기 시간")]
     [SerializeField] private float transitionDelay = 1.5f;
@@ -24,39 +25,57 @@ public class BattleResultManager : MonoBehaviour
 
         if (defeatPanel != null)
             defeatPanel.SetActive(false);
+
+        if (rewardPanel != null)
+            rewardPanel.SetActive(false);
     }
 
     public void ShowVictory()
-    {
-        ShowResult(victoryPanel, "05RewardScene");
-    }
-
-    public void ShowDefeat()
-    {
-        ShowResult(defeatPanel, "08DefeatScene");
-    }
-
-    private void ShowResult(GameObject panel, string sceneName)
     {
         if (IsBattleEnded)
             return;
 
         IsBattleEnded = true;
 
-        if (panel != null)
-        {
-            panel.SetActive(true);
-            panel.transform.SetAsLastSibling();
-        }
-
-        StartCoroutine(ChangeScene(sceneName));
+        ShowPanel(victoryPanel);
+        StartCoroutine(OpenRewardPanel());
     }
 
-    private IEnumerator ChangeScene(string sceneName)
+    public void ShowDefeat()
+    {
+        if (IsBattleEnded)
+            return;
+
+        IsBattleEnded = true;
+
+        ShowPanel(defeatPanel);
+        StartCoroutine(MoveToDefeatScene());
+    }
+
+    private void ShowPanel(GameObject panel)
+    {
+        if (panel == null)
+            return;
+
+        panel.SetActive(true);
+        panel.transform.SetAsLastSibling();
+    }
+
+    private IEnumerator OpenRewardPanel()
     {
         yield return new WaitForSecondsRealtime(transitionDelay);
 
-        SceneManager.LoadScene(sceneName);
+        if (victoryPanel != null)
+            victoryPanel.SetActive(false);
+
+        ShowPanel(rewardPanel);
+    }
+
+    private IEnumerator MoveToDefeatScene()
+    {
+        yield return new WaitForSecondsRealtime(transitionDelay);
+
+        SceneManager.LoadScene("08DefeatScene");
     }
 
     private void OnDestroy()
