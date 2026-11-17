@@ -38,4 +38,15 @@ public class PlayerHP : MonoBehaviour
             BattleResultManager.Instance.ShowDefeat();
         }
     }
+
+    public bool Heal(int amount)
+    {
+        if (IsDead || CurrentHP >= maxHP || amount <= 0)
+            return false;
+
+        CurrentHP = Mathf.Min(CurrentHP + amount, maxHP);
+        UpdateHPText();
+
+        return true;
+    }
 }
