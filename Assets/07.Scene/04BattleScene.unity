@@ -1401,6 +1401,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590674015}
   m_CullTransparentMesh: 1
+--- !u!114 &612345218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3184364483385506767, guid: a2e73acb71a40f744a99e49d230d08f0, type: 3}
+  m_PrefabInstance: {fileID: 311662520}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ecc2dc6a17ad7744b41e4ea2537e620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardUI
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,7 +2055,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 948100179}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1271136431}
+        m_TargetAssemblyTypeName: RewardCardManager, Assembly-CSharp
+        m_MethodName: BeginCardReward
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &948100179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2185,6 +2208,69 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6438929817994028669, guid: a2e73acb71a40f744a99e49d230d08f0, type: 3}
   m_PrefabInstance: {fileID: 1247003439}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1247003441 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3184364483385506767, guid: a2e73acb71a40f744a99e49d230d08f0, type: 3}
+  m_PrefabInstance: {fileID: 1247003439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ecc2dc6a17ad7744b41e4ea2537e620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardUI
+--- !u!1 &1271136430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1271136432}
+  - component: {fileID: 1271136431}
+  m_Layer: 0
+  m_Name: RewardCardManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1271136431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271136430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11284eae1b8b4664685bff74d00a665c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RewardCardManager
+  rewardPanel: {fileID: 508733873}
+  handCards:
+  - {fileID: 612345218}
+  - {fileID: 1544448321}
+  - {fileID: 1247003441}
+  - {fileID: 2070826035}
+  enemyCardUI: {fileID: 176881058}
+  selectionText: {fileID: 0}
+--- !u!4 &1271136432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271136430}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 911.6162, y: 584.7085, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1469063778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,6 +2564,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6438929817994028669, guid: 14d017cee62ab844089c273cd9f898f4, type: 3}
   m_PrefabInstance: {fileID: 1544448319}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1544448321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3184364483385506767, guid: 14d017cee62ab844089c273cd9f898f4, type: 3}
+  m_PrefabInstance: {fileID: 1544448319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ecc2dc6a17ad7744b41e4ea2537e620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardUI
 --- !u!1 &1569439568
 GameObject:
   m_ObjectHideFlags: 0
@@ -3319,6 +3416,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6438929817994028669, guid: 14d017cee62ab844089c273cd9f898f4, type: 3}
   m_PrefabInstance: {fileID: 2070826033}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2070826035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3184364483385506767, guid: 14d017cee62ab844089c273cd9f898f4, type: 3}
+  m_PrefabInstance: {fileID: 2070826033}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ecc2dc6a17ad7744b41e4ea2537e620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardUI
 --- !u!1 &2073564918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3481,3 +3589,4 @@ SceneRoots:
   - {fileID: 176881057}
   - {fileID: 1469063782}
   - {fileID: 646581015}
+  - {fileID: 1271136432}

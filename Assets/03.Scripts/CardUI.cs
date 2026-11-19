@@ -50,38 +50,44 @@ public class CardUI : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("카드 클릭 감지!", this);
-
         if (!enabled || !button.IsInteractable())
             return;
 
-        // 우클릭하면 선택 취소
+        RewardCardManager rewardManager = RewardCardManager.Instance;
+
+        if (rewardManager != null && rewardManager.IsSelecting)
+        {
+            if (eventData.button == PointerEventData.InputButton.Left)
+                rewardManager.SelectReplacement(this);
+
+            return;
+        }
+
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (selectedCard != null)
-                selectedCard.ReturnToHand();
-
+            CancelSelection();
             return;
         }
 
         if (eventData.button != PointerEventData.InputButton.Left)
             return;
 
+        if (BattleResultManager.Instance != null &&
+            BattleResultManager.Instance.IsBattleEnded)
+            return;
+
         BattleTurnManager manager = BattleTurnManager.Instance;
 
         if (manager == null || !manager.CanPlayCard)
             return;
-        // 이미 선택된 카드를 다시 클릭하면 기술 사용
+
         if (isSelected)
         {
             UseSkill();
             return;
         }
 
-        // 다른 카드가 선택되어 있다면 원위치로 복귀
-        if (selectedCard != null)
-            selectedCard.ReturnToHand();
-
+        CancelSelection();
         SelectCard();
     }
 
@@ -159,5 +165,11 @@ public class CardUI : MonoBehaviour, IPointerClickHandler
 
         if (selectedCard == this)
             selectedCard = null;
+    }
+
+    public static void CancelSelection()
+    {
+        if (selectedCard != null)
+            selectedCard.ReturnToHand();
     }
 }
