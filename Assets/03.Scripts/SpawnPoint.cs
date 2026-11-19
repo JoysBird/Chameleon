@@ -1,6 +1,7 @@
 using UnityEngine;
 
 // 적 프리팹 정보를 저장하기 위한 클래스
+// 적 하나의 프리팹 정보를 Inspector의 enemyList 배열 항목으로 편집할 수 있게 한다.
 [System.Serializable]
 public class EnemySpawnData
 {
@@ -11,12 +12,12 @@ public class SpawnPoint : MonoBehaviour
 {
     public EnemySpawnData[] enemyList;// 생성할 적 프리팹 목록
 
-    void Start()
+    void Start()  // 전투 씬에서 스폰 지점이 처음 동작할 때 적을 한 번 생성한다.
     {
         SpawnRandomEnemy();// 게임 시작 시 랜덤 적 생성 함수
     }
 
-    void SpawnRandomEnemy()
+    void SpawnRandomEnemy()  // Inspector 목록에서 적 프리팹 하나를 무작위로 골라 현재 위치에 생성한다.
     {
         if (enemyList.Length == 0)
             return; // 적 목록에 등록된 프리팹이 없다면 함수 종료
