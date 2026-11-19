@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b248118b74f4d647874a1db741ef755, type: 3}
   m_Name: Smash
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  cardName: Smash
-  description: 
-  cardImage: {fileID: 0}
   damage: 5
+  description: "\uC2A4\uD0AC '\uB454\uAE30 \uACF5\uACA9'"
