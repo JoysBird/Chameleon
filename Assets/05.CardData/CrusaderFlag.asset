@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: CrusaderFlag
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   damage: 3
+  description: "\uC2A4\uD0AC '\uC131\uC804\uC0AC\uC758 \uAE43\uBC1C'"

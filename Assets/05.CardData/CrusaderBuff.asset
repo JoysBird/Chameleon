@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CrusaderBuff
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   damage: 12
-  description: "\uC2A4\uD0AC '\uB454\uAE30 \uACF5\uACA9'"
+  description: "\uC2A4\uD0AC '\uC601\uC6C5\uC801 \uAE30\uC0C1'"

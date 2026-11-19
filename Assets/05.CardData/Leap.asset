@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Leap
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   damage: 9
+  description: "\uC2A4\uD0AC '\uB3C4\uC57D'"
