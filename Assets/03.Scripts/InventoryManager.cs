@@ -140,4 +140,49 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
+    public static bool TryStoreItems(GameObject[] itemPrefabs)
+    {
+        // 지급할 아이템 목록이 올바른지 확인한다.
+        if (itemPrefabs == null)
+            return false;
+
+        foreach (GameObject prefab in itemPrefabs)
+        {
+            if (prefab == null || prefab.GetComponent<RectTransform>() == null)
+                return false;
+        }
+
+        // 현재 인벤토리에 남아 있는 빈 슬롯의 개수를 확인한다.
+        int emptySlots = 0;
+
+        foreach (GameObject item in savedItemPrefabs)
+        {
+            if (item == null)
+                emptySlots++;
+        }
+
+        // 빈 슬롯이 부족하면 아이템을 지급하지 않는다.
+        if (emptySlots < itemPrefabs.Length)
+        {
+            Debug.LogWarning("인벤토리 공간이 부족합니다.");
+            return false;
+        }
+
+        // 획득한 아이템을 첫 번째 빈 슬롯부터 순서대로 저장한다.
+        foreach (GameObject prefab in itemPrefabs)
+        {
+            for (int i = 0; i < savedItemPrefabs.Length; i++)
+            {
+                if (savedItemPrefabs[i] != null)
+                    continue;
+
+                savedItemPrefabs[i] = prefab;
+                break;
+            }
+        }
+
+        // 모든 아이템이 정상적으로 저장되었음을 반환한다.
+        return true;
+    }
 }
