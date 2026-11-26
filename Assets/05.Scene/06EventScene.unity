@@ -1092,6 +1092,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 739389682}
+  - component: {fileID: 739389683}
   m_Layer: 0
   m_Name: EventEffectManager
   m_TagString: Untagged
@@ -1114,6 +1115,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &739389683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739389681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7dec815808281447b6ea92c394aeb8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventEffectManager
+  itemPrefabs:
+  - {fileID: 1591909413599883455, guid: af3b489bc4963a64eb233e1aa409bf99, type: 3}
 --- !u!1 &943231189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,6 +1535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1186215921}
+  - component: {fileID: 1186215922}
   m_Layer: 0
   m_Name: EventManager
   m_TagString: Untagged
@@ -1542,6 +1558,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1186215922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186215920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8ec8f20b5797044831c437b25b51a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventManager
+  eventList:
+  - {fileID: 11400000, guid: 851e9455e2c74334b9b51192c7425a41, type: 2}
+  eventImage: {fileID: 0}
+  eventDescription: {fileID: 0}
+  choiceButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  effectManager: {fileID: 739389683}
+  mapSceneName: 03MapScene
 --- !u!1 &1201189810
 GameObject:
   m_ObjectHideFlags: 0

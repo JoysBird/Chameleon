@@ -136,9 +136,11 @@ public class EventManager : MonoBehaviour
             currentEvent.choices == null)
             return;
 
+        // 선택지 번호가 올바른 범위인지 확인한다.
         if (choiceIndex < 0 || choiceIndex >= currentEvent.choices.Length)
             return;
 
+        // 플레이어가 선택한 선택지 데이터를 가져온다.
         EventChoice selectedChoice = currentEvent.choices[choiceIndex];
 
         if (selectedChoice == null)
@@ -168,7 +170,7 @@ public class EventManager : MonoBehaviour
                 button.interactable = false;
         }
 
-        // 이벤트를 종료하고 노드맵으로 돌아간다.
-        SceneManager.LoadScene(03MapScene);
+        // 이벤트를 종료하고 Inspector에 지정된 노드맵으로 돌아간다.
+        SceneManager.LoadScene(mapSceneName);
     }
 }
