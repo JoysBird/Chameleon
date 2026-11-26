@@ -1572,12 +1572,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EventManager
   eventList:
   - {fileID: 11400000, guid: 851e9455e2c74334b9b51192c7425a41, type: 2}
-  eventImage: {fileID: 0}
-  eventDescription: {fileID: 0}
+  eventImage: {fileID: 536119681}
+  eventDescription: {fileID: 168636424}
   choiceButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 987002833}
+  - {fileID: 564827870}
+  - {fileID: 1068781877}
   effectManager: {fileID: 739389683}
   mapSceneName: 03MapScene
 --- !u!1 &1201189810
