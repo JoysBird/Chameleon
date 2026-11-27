@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/05.Scene/08DefeatScene.unity
     guid: a4f29d4c30250e146ab5a48e52df3749
+  - enabled: 1
+    path: Assets/05.Scene/06EventScene.unity
+    guid: 1e87fc4a80136a546b1ed562cf451bd2
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
