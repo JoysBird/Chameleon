@@ -2465,12 +2465,12 @@ RectTransform:
   - {fileID: 1965375228}
   - {fileID: 325951365}
   - {fileID: 1544448320}
+  - {fileID: 1231604787}
+  - {fileID: 1187355071}
   - {fileID: 1683345225}
   - {fileID: 1910749136}
   - {fileID: 716898561}
   - {fileID: 508733874}
-  - {fileID: 1231604787}
-  - {fileID: 1187355071}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

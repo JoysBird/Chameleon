@@ -34,6 +34,11 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene(optionSceneName);
     }
 
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("01MainMenuScene");
+    }
+
     // Quit 버튼을 누르면 에디터에서는 Play 모드를 끝내고, 빌드에서는 게임을 종료한다.
     public void QuitGame()
     {

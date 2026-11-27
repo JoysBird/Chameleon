@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/05.Scene/01MainMenuScene.unity
+    guid: 39e91d79189d6e045a173670079d13e5
+  - enabled: 1
+    path: Assets/05.Scene/02OptionScene.unity
+    guid: 557d0f38a0e95d14386a338171a6c7dc
+  - enabled: 1
     path: Assets/05.Scene/03MapScene.unity
     guid: f811210b9bec63b4fa8cae7ef82543a9
   - enabled: 1
@@ -14,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/05.Scene/05RewardScene.unity
     guid: 4c067dd8e9b72074a948b4aa0c03d5d9
+  - enabled: 1
+    path: Assets/05.Scene/07VictoryScene.unity
+    guid: 15619f84e075f7f43ab4308ed8939588
   - enabled: 1
     path: Assets/05.Scene/08DefeatScene.unity
     guid: a4f29d4c30250e146ab5a48e52df3749
